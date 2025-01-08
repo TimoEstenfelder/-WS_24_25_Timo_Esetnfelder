@@ -1,0 +1,87 @@
+# Übung 0
+def assert_equals(a, b):
+    return a == b
+
+def factorial(n):
+    if n < 0:
+        return "Muss über 0 sein"
+    elif n == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1, n + 1):
+            result *= i
+        return result
+
+# Testfälle
+print(factorial(5))  # 120
+print(factorial(0))  # 1
+print(factorial(10)) # 3628800
+print(factorial(-3)) # Invalid input: n must be a non-negative integer.
+
+# Übung 1
+def always_five():
+    return len("fives") #Einfach die Länge eines Strings ausgeben
+print (always_five())
+
+#Übung 2
+
+def count_sheep(sheep):
+    count = 0
+    for i in sheep:
+        if i == True:  
+            count += 1
+    return count
+
+# Basic Tests
+array1 = [True,  True,  True,  False,
+          True,  True,  True,  True ,
+          True,  False, True,  False,
+          True,  False, False, True ,
+          True,  True,  True,  True ,
+          False, False, True,  True ];
+
+array2 = []
+
+array3 = [True,  True,  True,  False,
+          True,  False, True,  False,
+          True,  False, False, True ,
+          True,  True,  True,  True ,
+          False, False, True,  True ];
+
+print(count_sheep(array1))
+print(count_sheep(array2))
+print(count_sheep(array3))
+
+# Übung 3
+
+def number(lines):
+    result = []
+    for i in range(len(lines)):
+        result.append(f"{i + 1}: {lines[i]}")
+    return result
+
+print (number(["a", "b", "c"]), ["1: a", "2: b", "3: c"])
+print (number(['', '', '', '', '']), ['1: ', '2: ', '3: ', '4: ', '5: '])
+print (number(['', 'b', '', '', '']), ['1: ', '2: b', '3: ', '4: ', '5: '])
+
+#Übung 4
+
+def race(v1, v2, g):
+    if v1 >= v2:
+        return "Wird nie eingeholt"
+    time_in_hours = g / (v2 - v1)
+
+    # Umwandlung der Zeit in Stunden, Minuten, Sekunden
+    hours = int(time_in_hours)
+    minutes = int((time_in_hours - hours) * 60)
+    seconds = int(((time_in_hours - hours) * 60 - minutes) * 60)
+
+    return [hours, minutes, seconds]
+
+# Testfälle
+print(race(720, 850, 70))  # Sollte [0, 32, 18] zurückgeben
+print(race(80, 91, 37))    # Sollte [3, 21, 49] zurückgeben
+print(race(80, 100, 40))   # Sollte [2, 0, 0] zurückgeben
+
+
